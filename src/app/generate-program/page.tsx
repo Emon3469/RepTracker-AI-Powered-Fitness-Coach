@@ -92,7 +92,7 @@ const GenerateProgramPage = () => {
             }
         }
 
-        const handleError = (error: any) => {
+        const handleError = (error: Error | unknown) => {
             console.log('Vapi Error', error);
             setConnecting(false);
             setCallActive(false);
