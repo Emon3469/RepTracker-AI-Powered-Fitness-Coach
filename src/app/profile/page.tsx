@@ -150,9 +150,9 @@ const ProfilePage = () => {
                                                                         </div>
                                                                     </div>
                                                                     {
-                                                                        routine.description && (
+                                                                        (routine as any).description && (
                                                                             <p className="text-sm text-muted-foreground mt-1">
-                                                                                {routine.description}
+                                                                                {(routine as any).description}
                                                                             </p>
                                                                         )
                                                                     }
