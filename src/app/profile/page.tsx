@@ -121,7 +121,7 @@ const ProfilePage = () => {
                                                 <Accordion type="multiple" className="space-y-4">
                                                     {
                                                         currentPlan.workoutPlan.exercises.map((exerciseDay, index) => (
-                                                            <AccordionItem key={index} value={exerciseDay} className="border rounded-lg overflow-hidden">
+                                                            <AccordionItem key={index} value={exerciseDay.day} className="border rounded-lg overflow-hidden">
                                                                 <AccordionTrigger className="px-4 py-3 hover:no-underline hover:bg-primary/10 font-mono">
                                                                     <div className="flex justify-between w-full items-center">
                                                                         <span className="text-primary">{exerciseDay.day}</span>
