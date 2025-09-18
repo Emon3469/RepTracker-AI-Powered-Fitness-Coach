@@ -1,0 +1,86 @@
+"use client";
+
+import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
+import { DumbbellIcon, HomeIcon, UserIcon, } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import Image from "next/image";
+
+const Navbar = () => {
+    const { isSignedIn } = useUser();
+
+    return (
+        <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border py-3">
+            <div className="container mx-auto flex items-center justify-between">
+                <Link href="/" className="flex items-center gap-2">
+                   <div className="p-1 bg-primary/10 rounded">
+                       <Image
+                          src="./Fitness_logo.svg"
+                          width={80}
+                          height={80}
+                          alt="light Logo"
+                          className="w-6 h-6 object-contain transform group-hover:scale-110 transition-transform duration-300"
+                        />
+                   </div>
+                </Link>
+
+                <nav className="flex items-center gap-5">
+                    {
+                        isSignedIn ? (
+                            <>
+                              <Link
+                               href="/"
+                               className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
+                              >
+                                 <HomeIcon size={16} />
+                                 <span>Home</span>
+                              </Link>
+                              <Link
+                               href="/generate-program"
+                               className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
+                              >
+                                 <DumbbellIcon size={16} />
+                                 <span>Generate</span>
+                              </Link>
+                              <Link
+                               href="/profile"
+                               className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
+                              >
+                                 <UserIcon size={16} />
+                                 <span>Home</span>
+                              </Link>
+                              <Button
+                               asChild
+                               variant="outline"
+                               className="ml-2 border-primary/50 text-primary hover:text-white hover:bg-primary/10"
+                              >
+                                  <Link href="/generate-program">Get Started</Link>
+                              </Button>
+                              <UserButton />
+                            </>
+                        ) : (
+                            <>
+                            <SignInButton>
+                                <Button
+                                 variant={"outline"}
+                                 className="border-primary/50 text-primary hover:text-white hover:bg-primary/10"
+                                >
+                                   Sign In
+                                </Button>
+                            </SignInButton>
+
+                            <SignUpButton>
+                                 <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                                    Sign Up
+                                 </Button>
+                            </SignUpButton>
+                            </>
+                        )
+                    }
+                </nav>
+            </div>
+        </header>
+    );
+};
+
+export default Navbar;
