@@ -2,7 +2,9 @@
 
 An intelligent fitness tracking application that provides personalized workout plans and real-time coaching using advanced AI technology.
 
-![RepTracker Banner](./public/hero-ai3.png)
+<img width="1920" height="951" alt="project1" src="https://github.com/user-attachments/assets/7c30e1f3-4385-448c-bd60-a1da1f6acdb2" />
+<img width="1912" height="950" alt="project1_a" src="https://github.com/user-attachments/assets/7bfa80de-bf1b-4c72-9494-b9eeb80a4742" />
+
 
 ## ✨ Features
 
