@@ -17,6 +17,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
+// Extended routine type to handle optional description property
+interface ExtendedRoutine {
+  name: string;
+  sets: number;
+  reps: number;
+  description?: string;
+}
+
 const ProfilePage = () => {
     const { user } = useUser();
     const userId = user?.id as string;
@@ -150,9 +158,9 @@ const ProfilePage = () => {
                                                                         </div>
                                                                     </div>
                                                                     {
-                                                                        (routine as any).description && (
+                                                                        (routine as ExtendedRoutine).description && (
                                                                             <p className="text-sm text-muted-foreground mt-1">
-                                                                                {(routine as any).description}
+                                                                                {(routine as ExtendedRoutine).description}
                                                                             </p>
                                                                         )
                                                                     }
