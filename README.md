@@ -1,7 +1,0 @@
-echo "# RepTracker-AI-Powered-Fitness-Coach" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Emon3469/RepTracker-AI-Powered-Fitness-Coach.git
-git push -u origin main
