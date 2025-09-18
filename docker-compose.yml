@@ -5,39 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_CONVEX_URL=${NEXT_PUBLIC_CONVEX_URL}
+        - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        - NEXT_PUBLIC_VAPI_API_KEY=${NEXT_PUBLIC_VAPI_API_KEY}
+        - NEXT_PUBLIC_VAPI_WORKFLOW_ID=${NEXT_PUBLIC_VAPI_WORKFLOW_ID}
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_TELEMETRY_DISABLED=1
-    volumes:
-      # Mount the source code for development (optional)
-      - .:/app
-      - /app/node_modules
-      - /app/.next
     restart: unless-stopped
-    networks:
-      - reptracker-network
-
-  # Optional: Add a reverse proxy for production-like setup
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - reptracker
-    networks:
-      - reptracker-network
-    profiles:
-      - production
-
-networks:
-  reptracker-network:
-    driver: bridge
-
-# Optional: Add volumes for persistent data
-volumes:
-  node_modules:
-  next_cache:

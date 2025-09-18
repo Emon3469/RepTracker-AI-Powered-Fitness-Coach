@@ -1,3 +1,5 @@
 import Vapi from '@vapi-ai/web';
 
-export const vapi = new Vapi(process.env.NEXT_PUBLIC_VAPI_API_KEY!);
+// Provide fallback for build environments
+const vapiKey = process.env.NEXT_PUBLIC_VAPI_API_KEY || 'placeholder-key';
+export const vapi = new Vapi(vapiKey);
